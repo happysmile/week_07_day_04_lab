@@ -18,9 +18,11 @@ export default {
 
 <style lang="css" scoped>
  #beers-list {
+   background-color: white;
    border: 1px purple solid;
    width: 500px;
    height: 500px;
    overflow: auto;
+   margin: auto;
  }
 </style>

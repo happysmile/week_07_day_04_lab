@@ -16,9 +16,21 @@ export default {
 
 <style lang="css" scoped>
   .favourite-beers {
+    padding: 10px;
+    background-color: seashell;
     border: 1px purple solid;
+    border-radius: 15px;
     width: 300px;
     height: 500px;
     overflow: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  li {
+    padding: 10px;
+  }
+  li:nth-child(even){
+    background-color: white;
   }
 </style>
