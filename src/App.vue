@@ -70,6 +70,12 @@ export default {
 </script>
 
 <style>
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 body {
   background-image: linear-gradient(-90deg, red, yellow);
 }
@@ -88,5 +94,4 @@ ul {
   padding: 0;
   list-style: none;
 }
-
 </style>

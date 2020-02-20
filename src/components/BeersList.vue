@@ -6,7 +6,6 @@
 
 <script>
 import BeersListItem from './BeersListItem.vue';
-
 export default {
   name: "beers-list",
   props: ['beers'],
