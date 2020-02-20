@@ -1,9 +1,8 @@
 <template lang="html">
   <li v-bind:class="{ favourite : isFavourite }">
     <h2 v-on:click="showDetails">{{beer.name}}</h2>
-    <img v-on:click="showDetails" v-bind:src="beer.image_url" v-bind:alt="beer.name" height="200">
-    <button v-if="!isFavourite" v-on:click="addToFavourites">Add to favourites</button>
     <button v-if="isFavourite" v-on:click="removeFromFavourites">Remove from favourites</button>
+    <button v-if="!isFavourite" v-on:click="addToFavourites">Add to favourites</button>
   </li>
 </template>
 
@@ -39,4 +38,5 @@ export default {
 .favourite {
   background-color: pink;
 }
+
 </style>

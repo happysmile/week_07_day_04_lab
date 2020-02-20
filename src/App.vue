@@ -21,7 +21,8 @@ export default {
     return {
       beers: [],
       selectedBeer: null,
-      favouriteBeers: []
+      favouriteBeers: [],
+      promises: []
     }
   },
   components: {
@@ -30,13 +31,28 @@ export default {
     "favourite-beers-list": BeersFavouritesList
   },
   mounted() {
-    fetch('https://api.punkapi.com/v2/beers')
-    .then(results => results.json())
-    .then(results => this.beers = results);
+
+    for(let i=1; i<=5; i++){
+      this.promises.push("https://api.punkapi.com/v2/beers?page="+i+"&per_page=80")
+    };
+
+    for(let promise of this.promises){
+      fetch(promise)
+      .then(results => results.json())
+      .then(results => this.beers.push(results))
+      .then(() => this.beers = this.beers.flat());
+    }
+
+    // fetch('https://api.punkapi.com/v2/beers')
+    // .then(results => results.json())
+    // .then(results => this.beers = results);
+
     eventBus.$on('beer-selected', (beer)=>{ this.selectedBeer = beer;});
     eventBus.$on('beer-favourite', (beer) => {
-      this.favouriteBeers.push(beer)}
-    );
+      if(!this.favouriteBeers.includes(beer)){
+        this.favouriteBeers.push(beer);
+      }
+    });
     eventBus.$on('beer-non-favourite', (beer) => {
       const beerIndex = this.favouriteBeers.indexOf(beer)
       this.favouriteBeers.splice(beerIndex,1)
@@ -47,8 +63,8 @@ export default {
 
 <style>
 #app {
-  font: Verdana, Arial, sans-serif;
   position: relative;
+  font-family: Verdana, Arial, sans-serif;
 }
 #app section {
   position: fixed;
