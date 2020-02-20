@@ -21,4 +21,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.beer-details {
+  border: 1px purple solid;
+  width: 500px;
+  height: 500px;
+  overflow: auto;
+}
 </style>

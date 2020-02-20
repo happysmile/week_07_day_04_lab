@@ -1,5 +1,5 @@
 <template lang="html">
-  <ul v-if="beers">
+  <ul id="beers-list" v-if="beers">
     <beers-list-item v-for="(beer, index) in beers" v-bind:key="index" v-bind:beer="beer"></beers-list-item>
   </ul>
 </template>
@@ -17,4 +17,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+ #beers-list {
+   border: 1px purple solid;
+   width: 500px;
+   height: 500px;
+   overflow: auto;
+ }
 </style>
