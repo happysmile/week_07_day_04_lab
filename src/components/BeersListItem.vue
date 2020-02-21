@@ -1,6 +1,6 @@
 <template lang="html">
   <li v-bind:class="{ favourite : isFavourite }">
-    <h2 v-on:click="showDetails" v-bind:class="{ showing : showingDetails }">{{beer.name}}</h2>
+    <h2 v-on:click="showDetails" v-bind:class="{ showing : isShowing }">{{beer.name}}</h2>
     <button v-if="isFavourite" v-on:click="removeFromFavourites">Remove from favourites</button>
     <button v-if="!isFavourite" v-on:click="addToFavourites">Add to favourites</button>
   </li>
@@ -14,11 +14,10 @@ export default {
   name: 'beers-list-item',
   data(){
     return {
-      isFavourite: false,
-      showingDetails: false
+      isFavourite: false
     }
   },
-  props: ['beer'],
+  props: ['beer', 'isShowing'],
   methods: {
     showDetails(){
       this.showingDetails = true;
@@ -41,7 +40,7 @@ li.favourite {
   background-color: pink;
 }
 h2.showing {
-  /* color: darkgrey; */
+  color: darkgrey;
 }
 li {
   border-bottom: 1px solid 	lavender;

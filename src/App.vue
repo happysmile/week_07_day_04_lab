@@ -2,7 +2,7 @@
   <div id="app">
     <h1>Brewdog Beers List</h1>
     <main>
-      <beers-list v-bind:beers="beers"></beers-list>
+      <beers-list :selectedBeer="selectedBeer" v-bind:beers="beers"></beers-list>
       <beer-details v-if="selectedBeer" v-bind:beer="selectedBeer"></beer-details>
       <favourite-beers-list v-if="favouriteBeers.length>0" v-bind:favouriteBeers="favouriteBeers"></favourite-beers-list>
     </main>
